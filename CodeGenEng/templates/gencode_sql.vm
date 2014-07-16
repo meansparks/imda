@@ -1,0 +1,12 @@
+﻿-- ----------------------------------------------
+-- $theClass.Stereotype 表的 DDL 语句 $theClass.Name.ToUpper()
+-- ----------------------------------------------
+CREATE TABLE IF NOT EXISTS `$theClass.Name` (
+##循环属性
+#foreach ( $attr in $theClass.Attributes )
+#if("id" != $attr.Name)
+	`$attr.Name` #if("String" == $attr.Type)varchar(255) #elseif("int" == $attr.Type)int(11) DEFAULT 0 #elseif("long" == $attr.Type)int(20) #elseif("double" == $attr.Type)decimal(12, 2) #elseif("timestamp" == $attr.Type || "Date" == $attr.Type)datetime #else varchar(255) #end  COMMENT '$attr.Stereotype',
+#end
+#end
+	`id` bigint(20) NOT NULL AUTO_INCREMENT
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

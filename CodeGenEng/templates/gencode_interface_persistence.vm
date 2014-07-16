@@ -1,0 +1,20 @@
+#set($entity_name = "Data")
+package $theGenJob.BaseNamespace.$model_name.ToLower().$theTemplate.CodeSortName;
+
+import java.util.Date;
+import java.util.List;
+
+import org.sourceranch.framework.base.IBasePersistence;
+import org.sourceranch.framework.frame.PageRoll;
+import $theGenJob.BaseNamespace.$model_name.ToLower().$entity_name.ToLower().$theClass.Name$entity_name;
+
+/********************************************************
+ * $config_data.Plugin_copyrigth
+ * File name: $theClass.Name$theTemplate.FileNameSuffix.$theTemplate.FileNameEx
+ * Description : $theClass.Stereotype $theClass.Notes 
+ * Author: autoGen by $config_data.Plugin_name 
+ * Version: $config_data.Plugin_version
+ ***********************************************************/
+public interface $theTemplate.FileNamePrefix$theClass.Name$theTemplate.FileNameSuffix extends IBasePersistence<$theClass.Name$entity_name> {
+
+}

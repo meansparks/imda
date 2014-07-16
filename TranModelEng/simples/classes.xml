@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects>
+  <class name="C1" alias="c1" notes="tc1" persistence="" scope="" stereotype="测试1">
+    <attr name = "a1" alias = "别名1" notes = "备注1" scope = "" stereotype = "属性1" initial = "空白" type = "String"/>
+    <attr name = "a2" alias = "别名2" notes = "备注2" scope = "" stereotype = "属性2" initial = "1" type = "int"/>
+    <attr name = "a3" alias = "别名3" notes = "备注3" scope = "" stereotype = "属性3" initial = "" type = "Date"/>
+    <opt name = "o1" alias = "ao1" notes = "测试备注" scope = "" stereotype = "方法1" return_type = ""/>
+  </class>
+
+  <class name="C2" alias="c2" notes="tc2" persistence="" scope="" stereotype="测试2">
+    <attr name = "c2a1" alias = "" notes = "" scope = "" stereotype = "测试属性" initial = "" type = "String"/>
+  </class>
+
+  <class name="C3" alias="c3" notes="tc3" persistence="" scope="" stereotype="测试3"/>
+</objects>

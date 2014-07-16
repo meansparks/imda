@@ -1,0 +1,25 @@
+#set($entity_name = "Data")
+package $theGenJob.BaseNamespace.$model_name.ToLower().$theTemplate.CodeSortName;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.sourceranch.framework.frame.BasePersistence;
+import org.sourceranch.framework.frame.PageRoll;
+import org.sourceranch.framework.util.DateTool;
+import org.springframework.stereotype.Component;
+
+import $theGenJob.BaseNamespace.$model_name.ToLower().$entity_name.ToLower().$theClass.Name$entity_name;
+
+/********************************************************
+ * $config_data.Plugin_copyrigth
+ * File name: $theClass.Name$theTemplate.FileNameSuffix.$theTemplate.FileNameEx
+ * Description : $theClass.Stereotype $theClass.Notes 
+ * Author: autoGen by $config_data.Plugin_name 
+ * Version: $config_data.Plugin_version
+ ***********************************************************/
+@Component
+public class $theClass.Name$theTemplate.FileNameSuffix extends BasePersistence<$theClass.Name$entity_name> implements I$theClass.Name$theTemplate.FileNameSuffix {
+
+}

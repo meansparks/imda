@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configs>
+  <config>
+    <plugin_name>代码生成引擎</plugin_name>
+    <plugin_version>1.0</plugin_version>
+    <plugin_copyrigth>Copyright (C) 2014 沈阳明势信息技术有限公司.</plugin_copyrigth>
+  </config>
+  
+  <genJobs>
+    <!--  
+    menuName:菜单名称
+    isSubPackage:是否遍历子包
+    haveSType:只生成带有Stype的类
+    tRoot:任务模板根路径
+    baseNamespace:基础命名空间
+    modelType:(name|stereotype|alias)将所在包的（包名|类型名|别名）作为模块名
+    
+    targetDir:输出文件夹
+    classInOneFile:所有选中的类生成在一个文件里，如果选中的是包则按包划分文件，以包命名文件
+    fileNamePrefix:文件前缀
+    fileNameSuffix:文件后缀
+    fileNameEx:文件扩展名
+    fileNameLowerCase:文件名是否小写
+    fileNameDelimiter:文件名分隔符
+    codeSortName:代码分类名称
+    
+    -->
+    <genjob id="j1" baseNamespace="com.meanspar.iskill" menuName="生成实体代码" modelType="stereotype" isSubPackage="true" haveSType="true" tRoot="D:/projects/net/eaplugins/workspace/imda/CodeGenEng/templates">
+      <template targetDir="D:/gencode/dbscript" classInOneFile="true" fileNameEx="sql" >gencode_sql.vm</template>
+      <template targetDir="D:/gencode/persistence" fileNameEx="java" fileNamePrefix="I" fileNameSuffix="Persistence" codeSortName="persistence">gencode_interface_persistence.vm</template>
+      <template targetDir="D:/gencode/persistence" fileNameEx="java" fileNameSuffix="Persistence" codeSortName="persistence">gencode_persistence.vm</template>
+      <template targetDir="D:/gencode/entity"  fileNameEx="java" fileNameSuffix="Data" codeSortName="data">gencode_entity.vm</template>
+    </genjob>
+
+    <genjob id="j2" baseNamespace="com.meanspar.iskill" menuName="生成entity代码" modelType="stereotype" isSubPackage="true" haveSType="true" tRoot="D:/projects/net/eaplugins/workspace/imda/CodeGenEng/templates">
+      <template targetDir="D:/gencode/entity"  fileNameEx="java" fileNameSuffix="Data" codeSortName="data">gencode_entity.vm</template>
+    </genjob>
+
+    <genjob id="j3" baseNamespace="com.meanspar.iskill" menuName="生成SQL脚本" modelType="stereotype" isSubPackage="true" haveSType="true" tRoot="D:/projects/net/eaplugins/workspace/imda/CodeGenEng/templates">
+      <template targetDir="D:/gencode/dbscript" classInOneFile="true" fileNameEx="sql">gencode_sql.vm</template>
+    </genjob>
+    
+  </genJobs>
+</configs>

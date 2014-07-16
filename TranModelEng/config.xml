@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configs>
+  <config>
+    <plugin_name>模型转换引擎</plugin_name>
+    <plugin_version>1.0</plugin_version>
+    <plugin_copyrigth>Copyright (C) 2014 沈阳明势信息技术有限公司.</plugin_copyrigth>
+  </config>
+
+  <transJobs>
+    <!--  
+    transJob:
+    menuName:插件菜单名称
+    isSubPackage:是否遍历子包
+    isStructure:是否复制模型结构
+    creatMode:目标模型生成模式new|update|force(只创建新的模型|更新模型|强制替换模型)
+    
+    task:
+    mainTask:主任务ID
+    sourceType\targetType:Package|UseCase|Activity|Action|Object|Class|Attribute|Method
+    targetPackagePath:modelname.package.subpackage|$CURR_MAIN_OBJECT
+    filterAttr:name|stereotype
+    filterValue:当指定filterAttr后，可以进一步指定属性值
+    -->
+    <transJob id="tj1" menuName="分析用例转设计建模" isSubPackage="true" isStructure="false" creatMode="update">
+      <task id="t1" mainTask="" sourceType="UseCase" targetType="Package" targetPackagePath="I，Skill online/我技能在线/01.用例模型/01.02.设计建模" filterAttr="stereotype">
+        <attr name="name" targetName="name"/>
+      </task>
+      <task id="t2" mainTask="t1" sourceType="Activity" targetType="UseCase" targetPackagePath="$CURR_MAIN_OBJECT" filterAttr="stereotype">
+        <attr name="name" targetName="name"/>
+      </task>
+    </transJob>
+    <transJob id="tj2" menuName="分析用例对象转实体对象" isSubPackage="true" isStructure="true" creatMode="update">
+      <task id="t3" mainTask="" sourceType="Object" targetType="Class" targetPackagePath="I，Skill online/我技能在线/02.对象模型/02.02.实体模型" filterAttr="stereotype" filterValue="entity">
+        <attr name="name" targetName="stereotype"/>
+        <attr name="notes" targetName="name"/>
+      </task>
+    </transJob>
+    <transJob id="tj3" menuName="设计用例转逻辑对象" isSubPackage="true" isStructure="true" creatMode="update">
+      <task id="t4" mainTask="" sourceType="UseCase" targetType="Class" targetPackagePath="I，Skill online/我技能在线/02.对象模型/02.03.逻辑模型" filterAttr="stereotype">
+        <attr name="name" targetName="name"/>
+        <attr name="stereotype" targetName="stereotype"/>
+      </task>
+      <task id="t5" mainTask="t4" sourceType="Activity" targetType="Method" targetPackagePath="$CURR_MAIN_OBJECT" filterAttr="stereotype">
+        <attr name="stereotype" targetName="name"/>
+        <attr name="name" targetName="stereotype"/>
+      </task>
+      <task id="t6" mainTask="t4" sourceType="Object" targetType="Attribute" targetPackagePath="$CURR_MAIN_OBJECT" filterAttr="stereotype">
+        <attr name="stereotype" targetName="name"/>
+        <attr name="name" targetName="stereotype"/>
+      </task>
+    </transJob>
+  </transJobs>
+
+  <importJobs>
+    <!--  
+    importJob：
+    menuName:插件菜单名称
+    targetPackagePath:modelname.package.subpackage
+    
+    modelFile:
+    
+    modelDir:
+    extName:文件扩展名 
+    isSubPackage:是否遍历子包
+    
+    -->
+    <importJob id="i1" menuName="反向导入实体模型" targetPackagePath="I，Skill online/我技能在线/02.对象模型/02.02.实体模型/新建导入包" creatMode="update">
+      <modelFile>D:/projects/net/eaplugins/workspace/imda/TranModelEng/simples/classes.xml</modelFile>
+      <modelDir isSubPackage="true" extName="">D:/projects/net/eaplugins/workspace/imda/TranModelEng/simples</modelDir>
+    </importJob>
+  </importJobs>
+  
+</configs>

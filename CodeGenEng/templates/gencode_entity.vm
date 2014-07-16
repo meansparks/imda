@@ -1,0 +1,56 @@
+package $theGenJob.BaseNamespace.$model_name.ToLower().$theTemplate.CodeSortName;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+import com.meanspark.framework.frame.FrmData;
+
+/********************************************************
+ * $config_data.Plugin_copyrigth
+ * File name: $theClass.Name$theTemplate.FileNameSuffix.$theTemplate.FileNameEx
+ * Description : $theClass.Stereotype $theClass.Notes 
+ * Author: autoGen by $config_data.Plugin_name 
+ * Version: $config_data.Plugin_version
+ ***********************************************************/
+@Entity()
+@Table(name = "$theClass.Name.ToLower()") 
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class $theClass.Name$theTemplate.FileNameSuffix extends FrmData {
+
+	##循环属性
+	#foreach ( $attr in $theClass.Attributes )
+		#if(!("id" == $attr.Name))
+
+	/*
+	 * Attribute Name: $attr.Stereotype 
+	 * Description: $attr.Notes
+	 */
+	private $attr.Type $attr.Name;
+		#end
+	#end
+
+	##循环方法
+	#foreach ( $attr in $theClass.Attributes )
+
+		#if(!("id" == $attr.Name))
+	#set($f_m_name = $attr.Name.Substring(0, 1).ToUpper())
+	#set($m_name_length = $attr.Name.Length - 1)
+	#set($o_m_name = $attr.Name.Substring(1, $m_name_length))
+
+	@Column(name = "$attr.Name.ToUpper()", nullable = true)
+	public $attr.Type get$f_m_name$o_m_name() {
+		return $attr.Name;
+	}
+
+	public void set$f_m_name$o_m_name($attr.Type $attr.Name) {
+		this.$attr.Name = $attr.Name;
+	}
+		#end
+	#end
+
+}
